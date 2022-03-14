@@ -7,37 +7,44 @@ namespace CalculadoraPOO.ConsoleApp
         static void Main(string[] args)
         {
             string opcao;
+            Calculadora conta = new Calculadora();
             do
             {
                 Console.WriteLine();
-                Console.WriteLine("Calculadora");
-                Console.WriteLine("Digite 1 para somar");
+                do
+                {
+                    Console.WriteLine("Calculadora");
+                    Console.WriteLine("Digite 1 para somar");
 
-                Console.WriteLine("Digite 2 para subtrair");
+                    Console.WriteLine("Digite 2 para subtrair");
 
-                Console.WriteLine("Digite 3 para multiplicar");
+                    Console.WriteLine("Digite 3 para multiplicar");
 
-                Console.WriteLine("Digite 4 para dividir");
+                    Console.WriteLine("Digite 4 para dividir");
 
-                Console.WriteLine("Digite s para sair");
+                    Console.WriteLine("Digite s para sair");
+                    Console.Write("Resposta: ");
+                    opcao = Console.ReadLine();
 
-                Console.Write("Resposta: ");
-                opcao = Console.ReadLine();
+                }while(opcao != "1" && opcao != "2" && opcao != "3" && opcao != "4" && opcao != "s");
+
 
                 if (opcao == "s")
+                {
                     break;
+                }
+
 
                 Console.WriteLine();
 
-                Console.Write("Digite o primeiro número: ");
-                double primeiroNumero = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Digite o primeiro número: ");
+                    double primeiroNumero = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine();
+                    Console.WriteLine();
 
-                Console.Write("Digite o segundo número: ");
-                double segundoNumero = Convert.ToDouble(Console.ReadLine());
-
-                Calculadora conta = new Calculadora();
+                    Console.Write("Digite o segundo número: ");
+                    double segundoNumero = Convert.ToDouble(Console.ReadLine());
+                
 
                 Console.WriteLine();
 
@@ -57,9 +64,14 @@ namespace CalculadoraPOO.ConsoleApp
                 {
                     Console.Write("Resultado da divisão: " + Math.Round(conta.Divisao(primeiroNumero, segundoNumero), 2));
                 }
+      
 
                 Console.ReadLine();
-            } while (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4");
+            } while (opcao == "1" || opcao == "2" || opcao == "3" || opcao == "4" || opcao == "5");
+
+            Console.WriteLine();
+            Console.WriteLine("Histórico de Operações: ");
+            conta.HistoricoCalculadora();
         }
     }
 }
